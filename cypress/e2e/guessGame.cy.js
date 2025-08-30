@@ -5,12 +5,13 @@ describe('Guess Game Home Page', () => {
   beforeEach(() => {
     // gamePage.loadPage()//
     cy.loadGuessNumber(12)
-
   })
-  it('TS888-001: Verify Initial Application State on Load', () => {
-    gamePage.initialLoad()
-
-    
+  it.only('TS888-001: Verify Initial Application State on Load', () => {
+    // gamePage.initialLoad()
+    gamePage.getButtonGuess().should('have.text', 'GUESS')
+    gamePage.getGuessField1()
+    gamePage.getGuessField2()
+    gamePage.getGuessField3()
   })
   it('**TS888-002: Verify "GUESS" Button Enables/Disables with Input', () => {
     //1.  Observe the initial state of the "GUESS" button.

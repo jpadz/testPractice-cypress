@@ -1,4 +1,12 @@
  class gamePage {
+    
+    //
+
+    getButtonGuess = () => cy.get('[data-testid="guessButton"]')
+    getGuessField1 = () => cy.get('[data-testid="guessField"]')
+    getGuessField2 = () => cy.get('#guessField')
+    getGuessField3 = () => cy.get('div>[type="text"]')
+
     guessButton = '[data-testid="guessButton"]'
     guessField = '#guessField'
     messageArea = '[data-testid="messageArea"]'
@@ -10,6 +18,7 @@
     clickGuessButton () {
         cy.get(this.guessButton).click()
     }
+
     typeGuessField(value) {
         cy.get(this.guessField).type(value)
         
@@ -23,7 +32,7 @@
     displayPreviousGuess(value) {
         cy.get(this.previousGuess).should('contain.text', value)
     }
-    clear() {
+    clear(field) {
         cy.get(this.guessField).clear()
     }
     focused() {
